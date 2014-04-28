@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>weddingphp</Name>
+    <ProjectGuid>a00818cc-c618-46c0-809c-e2d96d121677</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>weddingphp</RootNamespace>
+    <!-- important to be opened by PHP Tools, when also Phalanger Tools are installed -->
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <AssemblyName>weddingphp</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="includes\footer.php" />
+    <Compile Include="includes\navigation.php" />
+    <Compile Include="index.php" />
+    <Compile Include="Script1.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="content\" />
+    <Folder Include="content\bootstrap\" />
+    <Folder Include="content\images\" />
+    <Folder Include="includes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\bootstrap\bootstrap.min.css" />
+    <Content Include="content\common.less">
+      <Publishable>False</Publishable>
+    </Content>
+    <Content Include="content\images\B-S_repeat.png" />
+    <Content Include="content\images\bg-repeat.jpg" />
+    <Content Include="content\images\bottom-rp.png" />
+    <Content Include="content\images\corner-sprite.png" />
+    <Content Include="content\images\footer-rp.png" />
+    <Content Include="content\images\footer-rp2.png" />
+    <Content Include="content\images\L-S_repeat.png" />
+    <Content Include="content\images\R-S_repeat.png" />
+    <Content Include="content\images\T-S_repeat.png" />
+    <Content Include="content\images\top-rp.png" />
+    <Content Include="content\images\wrapper-rp.png" />
+    <Content Include="content\page.css" />
+    <Content Include="content\page.less">
+      <Publishable>False</Publishable>
+    </Content>
+    <Content Include="content\page.min.css" />
+    <Content Include="content\Reset.less">
+      <Publishable>False</Publishable>
+    </Content>
+    <Content Include="content\Site.css" />
+    <Content Include="content\Site.less" />
+    <Content Include="content\Site.min.css" />
+    <Content Include="Site.min.css" />
+    <Content Include="includes\header.php" />
+  </ItemGroup>
+</Project>

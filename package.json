@@ -1,0 +1,32 @@
+{
+  "name": "80",
+  "version": "0.0.0",
+  "description": "portfolio project",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "~0.4.4",
+    "grunt-cli": "~0.1.13",
+    "node": "~0.0.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-less": "~0.5.0",
+    "grunt-contrib-watch": "~0.4.0"
+  },
+  "scripts": {
+    "test": "grunt watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/n/a"
+  },
+  "keywords": [
+    "n/a"
+  ],
+  "author": "Daniel St. Germain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/n/a/issues"
+  },
+  "homepage": "https://github.com/n/a"
+}

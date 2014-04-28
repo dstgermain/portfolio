@@ -1,0 +1,25 @@
+﻿[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+.cursive {
+  font-family: 'Mr De Haviland', cursive;
+}
+.serif {
+  font-family: 'Neuton', serif;
+}
+.sans {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+.fl-wth {
+  width: 100%;
+}
+.hf-wth {
+  width: 50%;
+}
+.hide {
+  display: none;
+}
+.clear {
+  width: 100%;
+  clear: both;
+}

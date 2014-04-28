@@ -1,0 +1,12 @@
+﻿<div class="form-left-col">
+  <label>Id:</label>
+
+  <label>Page Name:</label>
+  <input type="text" name="page.name" value="{{ page.name }}" required />
+
+  <label>Content:</label>
+  <input type="text" name="page.content" value="{{ page.content }}" />
+
+  <button class="save" ng:click="savePage()">Save</button>
+  <button class="delete" ng:click="deletePage()">Delete</button>
+</div>

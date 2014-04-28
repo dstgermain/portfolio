@@ -1,0 +1,1 @@
+﻿package {	import flash.display.*;	import flash.events.*;	import flash.utils.getTimer;		public class backgndTwo extends MovieClip{		public function removeBkgAsteroid(bkgAsteroids:backgroundAsteroid)		{			for (var i in bkgAsteroid)			{				if (bkgAsteroid[i] == bkgAsteroids)				{					bkgAsteroid.splice(i,1);					break;				}			}		}	}}

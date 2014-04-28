@@ -1,0 +1,132 @@
+/*
+*
+* author: Daniel St. Germain
+* version: 4-14-14
+* Please do not copy with out permission
+*
+*/
+
+/*-- fonts --*/
+@import url(http://fonts.googleapis.com/css?family=Alike);
+.serif() { font-family: 'Alike', serif; }
+@import url(http://fonts.googleapis.com/css?family=Sniglet);
+.sans() { font-family: 'Sniglet', sans-serif; }
+
+/*-- colors --*/
+@blue: #8da2b2;
+@lt-blue: lighten(@blue, 30%);
+@dk-blue: darken(@blue, 10%);
+@dkr-blue: darken(@blue, 30%);
+@grey: #7a736d;
+@red: #b21612;
+@black: #000000;
+
+/*-- text --*/
+
+h3 {
+	.sans();
+	color: @dkr-blue;
+	font-size: 1.4em;
+	margin-bottom: 5px;
+}
+
+h4 {
+	.sans();
+	color: @blue;
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+p {
+	.serif();
+	font-size: 1em;
+	line-height: 1.4em;
+	color: @grey;
+	margin-bottom: 10px;
+}
+
+
+/*-- browser prefixes --*/
+.transition(@type: all,@time: .3s,@ease: ease-in-out) {
+	-webkit-transition: @type @time @ease;
+	-moz-transition: @type @time @ease;
+	transition: @type @time @ease;
+}
+
+/*-- clear fix --*/
+.clearfix() {
+	zoom: 1;
+
+	&:after, &:before {
+		content: "";
+		display: table;
+		visibility: hidden;
+	}
+	&:after {
+		clear: both;
+	}
+}
+/*-- general settings --*/
+body {
+	font-size: 14px;
+	.serif();
+	line-height: 1.4em;
+	letter-spacing: .07em;
+	background-color: @blue;
+
+	*, *:before, *:after {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+}
+[class*="mobile-"] {
+	display: none;
+}
+a {
+	.transition(all,.3s,ease-in-out);
+}
+ul.nav-list {
+	margin: 0;
+}
+ul.nav-list li {
+	display: inline-block;
+}
+ul.nav-list li a {
+	text-decoration: none;
+}
+img.responsive {
+	width: 100%;
+}
+.no-wrap {
+	white-space: nowrap;
+}
+.wrapper {
+	max-width: 960px;
+	width: 100%;
+	padding: 0 10px; 
+	margin: 0 auto;
+
+	.clearfix();
+}
+.right {
+	float: right;
+}
+.left {
+	float: left;
+}
+
+@media (max-width:767px) {
+	.desktop-img {
+		display: none;
+	}
+}
+
+@media (max-width:489px) {
+	[class*="mobile-"] {
+		display: block;
+	}
+	[class*="desktop-"] {
+		display: none;
+	}
+}

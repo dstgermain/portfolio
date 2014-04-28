@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "This area is password protected"
+AuthUserFile /Applications/MAMP/htdocs/doc.portfolio.com/admin/.htpasswd
+Require valid-user
