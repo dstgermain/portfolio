@@ -1,5 +1,0 @@
-AuthType Basic
-AuthName "This area is password protected"
-AuthUserFile /Applications/MAMP/htdocs/doc.portfolio.com/admin/.htpasswd
-#AuthUserFile /ebs/home/danstgermain/domains/danstgermain.aisites.com/public_html/IMD311/admin/.htpasswd
-Require valid-user
