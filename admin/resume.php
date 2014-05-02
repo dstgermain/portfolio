@@ -4,7 +4,7 @@
 	$query_Items = "SELECT exp_ID, employer_name, employer_location, date_start, date_end, job_title, job_description, job_list  FROM resume_entries ORDER BY exp_ID";
 	$items = mysqli_query($conn, $query_Items) or die(mysqli_error());	
 
-	$arr = [];
+	$arr = array();
 	while ($result = mysqli_fetch_array($items)) { 
 		$arr[] = array(
 			"id" => $result['exp_ID'],
@@ -60,7 +60,6 @@
 						<table class="table table-striped">
 							<thead>
 								<tr>
-									<th>ID</th>
 									<th>Employee Name</th>
 									<th>Location</th>
 									<th>Start</th>
@@ -74,7 +73,6 @@
 							<tbody>
 							<?php foreach($arr as $item) : ?>
 								<tr>
-									<td name="id" value="<?php echo $item["id"]; ?>"><?php echo $item["id"]; ?></td>
 									<td><?php echo $item["name"]; ?></td>
 									<td><?php echo $item["location"]; ?></td>
 									<td><?php echo $item["start"]; ?></td>
@@ -105,8 +103,7 @@ $("[data-update]").on("click", function() {
 			$(".table.table-striped").hide();
             $(".col-sm-9").append(data);
             $(".close-update").on("click", function(){
-				$(".table.table-striped").show();
-				$("#insert").hide();
+				location.reload();
             });
             updateFunction();
         }

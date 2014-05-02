@@ -4,12 +4,11 @@
 	$id = (int)$_POST["id"];
 	$query_Items = "SELECT exp_ID, employer_name, employer_location, date_start, date_end, job_title, job_description, job_list  FROM resume_entries WHERE exp_ID=" . $id;
 	$items = mysqli_query($conn, $query_Items) or die(mysqli_error());
-	$update = mysqli_query($conn, $query_Items);
-	if (!$update) {
+	if (!$items) {
 		die(' Failed to update - '.$name);
 	}
 	mysqli_close($conn);
-	$arr = [];
+	$arr = array();
 	while ($result = mysqli_fetch_array($items)) { 
 		$arr[] = array(
 			"id" => $result['exp_ID'],
@@ -40,8 +39,8 @@
 		$html .= '<div class="form-group"><label for="url">Title</label>';
 		$html .= '<input type="text" class="form-control input-lg" name="title" id="title" value="'.$item["title"].'"></div>';
 		$html .= '<div class="form-group">';
-		$html .= '<label for="descr">Description</label>';
-		$html .= '<textarea class="form-control input-lg" name="descr" id="descr" rows="5">'.$item["desc"].'</textarea>';
+		$html .= '<label for="desc">Description</label>';
+		$html .= '<textarea class="form-control input-lg" name="desc" id="desc" rows="5">'.$item["desc"].'</textarea>';
 		$html .= '</div>';
 		$html .= '<div class="form-group">';
 		$html .= '<label for="descr">List <small>Enter ";" for seperate list items.</small></label>';

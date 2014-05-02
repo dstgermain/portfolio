@@ -1,3 +1,21 @@
+// ** Please do not use without permission ** 
+
+// for code blocks in blog
+pre {
+	background-color: lighten(#000000, 30%);
+	padding: 0 10px 25px;
+	line-height: 25px;
+    font-family: arial, sans-serif;
+	box-shadow: inset 2px 2px 2px rgba(0,0,0,0.6);
+	border: 2px solid @lt-blue;
+
+	.clearfix();
+}
+code {
+	color: #C9F76F;
+}
+
+//main content
 #main-content {
 	background-color: #ffffff;
 	padding: 2% 0;
@@ -6,9 +24,14 @@
 	a {
 		color: @grey;
 
-		a:hover {
+		&:hover {
 			color: @blue;
 		}
+	}
+
+	small {
+		color: @grey;
+		font-size: .7em;
 	}
 
 	.column {
@@ -78,10 +101,10 @@
 			display: block;
 			text-decoration: none;
 			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-			filter: alpha(opacity=50);
-			-moz-opacity: 0.5;
-			-khtml-opacity: 0.5;
-			opacity: 0.5;
+			filter: alpha(opacity=80);
+			-moz-opacity: 0.8;
+			-khtml-opacity: 0.8;
+			opacity: 0.8;
 
 			.clearfix();
 
@@ -91,6 +114,13 @@
 				-moz-opacity: 1;
 				-khtml-opacity: 1;
 				opacity: 1;
+			}
+
+			h3 {
+				color: #ffffff;
+				background-color: @dkr-blue;
+				margin: 0;
+				padding: 5px 5px;
 			}
 
 			p {
@@ -151,11 +181,28 @@
 
 	//contact page
 	.column-center {
+		position: relative;
 		width: 60%;
 		margin: 0 auto;
+
+		.block-out {
+			position: absolute;
+			left: -10px;
+			top: 50%;
+			cursor: pointer;
+			background: #ffffff;
+			-webkit-border-radius: 3px;
+			border: 2px solid @blue;
+			border-radius: 3px;
+			width: 103%;
+			padding: 10px;
+			margin-top: -35px;
+			box-shadow: 3px 3px 0 rgba(0,0,0,.2);
+		}
 	}
 	form#contact {
 		input[type="text"], textarea {
+			position: relative;
 			width: 100%;
 			padding: 10px;
 			border: 0;
@@ -177,6 +224,32 @@
 				outline: 0;
 				background-color: #f0f0f0;
 			}
+
+			&.valid {
+				border: 3px solid #C9F76F;
+			}
+
+			&.error {
+				border: 3px solid #ff4100;
+			}
+		}
+
+		.check {
+			display: block;
+			color: #C9F76F;
+			position: absolute;
+			margin-top: -50px;
+			margin-left: -26px;
+			font-size: 25px;
+		}
+
+		.ex {
+			display: block;
+			color: #ff4100;
+			position: absolute;
+			margin-top: -50px;
+			margin-left: -26px;
+			font-size: 25px;
 		}
 
 		label {
@@ -222,24 +295,28 @@
 
 			div {
 			    position: absolute;
-			    bottom: 0;
-			    left: -500px;
+			    top: -50px;
+			    line-height: 50px;
+			    height: 50px;
+			    left: 0;
+			    right: 0;
 			    background: @dkr-blue;
-			    padding: 10px;
+			    padding: 0 10px;
 			    font-size: .8em;
 			    filter: alpha(opacity=80);
 				-moz-opacity: 0.8;
 				-khtml-opacity: 0.8;
 				opacity: 0.8;
-			    .transition(left, .3s, ease-in-out);	
+			    .transition(top, .3s, ease-in-out);	
 
 			    h3 {
 			    	color: #ffffff;
+			    	margin: 0;
 			    }
 			}
 
 			&:hover div {
-			    left: 0;
+			    top: 0;
 			}
 		}
 
@@ -381,6 +458,14 @@
 			line-height: 1.5em;
 			margin-bottom: 5px;
 			color: @grey;
+		}
+
+		.column-2 {
+			width: percentage(1 / 4 - .0015);
+		}
+
+		.column-3 {
+			width: percentage(1 / 2 - .0015)
 		}
 
 		img.responsive.about-img {

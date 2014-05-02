@@ -5,10 +5,10 @@ include 'includes/_navigation.php';
 ?>
 <div id="main-content" role="main">
 	<div class="wrapper about">
-		<div class="desktop-img column left">
+		<div class="desktop-img column-2 left">
 			<img src="img/about-left.gif" class="responsive about-img"/>
 		</div>
-		<div class="column left">
+		<div class="column-3 left">
 			<p>Hello! My name is Daniel St. Germain,</p>
 			<p>I graduated from the New England Institute of art with an associate 
 			degree in TV Broadcasting in 2006. After completing my degree, I started as an editor 
@@ -24,7 +24,7 @@ include 'includes/_navigation.php';
 			4 years at channel 7, I took an opportunity at Karmaloop.com as a Front-End Developer. 
 			I'm now a software developer at constant contact and I love what I do.</p>
 		</div>
-		<div class="desktop-img column left">
+		<div class="desktop-img column-2 left">
 			<img src="img/about-right.gif" class="responsive about-img"/>
 		</div>
 	</div>

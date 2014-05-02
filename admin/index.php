@@ -4,7 +4,7 @@
 	$query_Items = "SELECT portfolio.item_ID, portfolio.item_name, portfolio.item_desc, portfolio.item_url, portfolio.item_img, portfolio_cat.cat_name  FROM portfolio INNER JOIN portfolio_cat ON portfolio.item_cat=portfolio_cat.item_cat ORDER BY item_ID DESC";
 	$items = mysqli_query($conn, $query_Items) or die(mysqli_error());	
 
-	$arr = [];
+	$arr = array();
 	while ($result = mysqli_fetch_array($items)) { 
 		$arr[] = array(
 			"id" => $result['item_ID'],
@@ -56,7 +56,6 @@
 						<table class="table table-striped">
 							<thead>
 								<tr>
-									<th>ID</th>
 									<th>Project</th>
 									<th>Category</th>
 									<th>Description</th>
@@ -68,7 +67,6 @@
 							<tbody>
 							<?php foreach($arr as $item) : ?>
 								<tr>
-									<td name="id" value="<?php echo $item["id"]; ?>"><?php echo $item["id"]; ?></td>
 									<td><?php echo $item["name"]; ?></td>
 									<td><?php echo $item["cat"]; ?></td>
 									<td><?php echo $item["desc"]; ?></td>
@@ -97,8 +95,7 @@ $("[data-update]").on("click", function() {
 			$(".table.table-striped").hide();
             $(".col-sm-9").append(data);
             $(".close-update").on("click", function(){
-				$(".table.table-striped").show();
-				$("#insert").hide();
+				location.reload();
             });
             updateFunction();
         }

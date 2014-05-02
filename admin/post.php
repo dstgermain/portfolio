@@ -4,17 +4,13 @@
 	$query_Items = "SELECT post_id, post_title, post_date, post_body FROM portfolio_post ORDER BY post_id DESC";
 	$items = mysqli_query($conn, $query_Items) or die(mysqli_error());	
 
-	$arr = [];
+	$arr = array();
 	while ($result = mysqli_fetch_array($items)) { 
 		$arr[] = array(
-			"id" => $result['exp_ID'],
-			"name" => $result['employer_name'],
-			"location" => $result['employer_location'],
-			"start" => $result['date_start'],
-			"end" => $result['date_end'],
-			"title" => $result['job_title'],
-			"desc" => $result['job_description'],
-			"list" => $result['job_list'],
+			"id" => $result['post_id'],
+			"name" => $result['post_title'],
+			"date" => $result['post_date'],
+			"body" => $result['post_body'],
 		);	
 	}
 	//echo dirname(__FILE__);
@@ -57,27 +53,28 @@
 						<table class="table table-striped">
 							<thead>
 								<tr>
-									<th>ID</th>
-									<th>Employee Name</th>
-									<th>Location</th>
-									<th>Start</th>
-									<th>End</th>
-									<th>Job Title</th>
-									<th>Description</th>
-									<th>List</th>
+									<th>Title</th>
+									<th>Date</th>
+									<th>Body</th>
 									<th></th>
 								</tr>
 							</thead>
 							<tbody>
 							<?php foreach($arr as $item) : ?>
 								<tr>
-									<td name="id" value="<?php echo $item["id"]; ?>"><?php echo $item["id"]; ?></td>
 									<td><?php echo $item["name"]; ?></td>
-									<td><?php echo $item["location"]; ?></td>
-									<td><?php echo $item["start"]; ?></td>
-									<td><?php echo $item["title"]; ?></td>
-									<td><?php echo $item["description"]; ?></td>
-									<td><?php echo $item["list"]; ?></td>
+									<td><?php echo $item["date"]; ?></td>
+									<td>
+										<?php 
+											$output = "";
+											$string = strip_tags($item['body'], '<a><div><img><h1><h2><h3><blockqoute>');
+											$words_count = explode(" ", $string);
+										    for ($i = 1; $i < 30; $i++) {
+										        $output .= $words_count[$i] . " ";
+										    }
+										    echo "<p>" . $output . "</p>";
+										?>
+									</td>
 									<td><a href="#" data-update="<?php echo $item["id"]; ?>">edit</a><br><a href="?id=<?php echo $item["id"]; ?>&delete=true">delete</a></td>
 								</tr>
 							<?php endforeach; ?>
@@ -94,15 +91,14 @@ $("[data-update]").on("click", function() {
 	$(".col-sm-9").block({ message: "Please wait.." });
     $.ajax({
         type: "POST",
-        url: "single_resume.php",
+        url: "single_post.php",
         data: {id:projID},
         success: function(data){
 			$(".col-sm-9").unblock();
 			$(".table.table-striped").hide();
             $(".col-sm-9").append(data);
             $(".close-update").on("click", function(){
-				$(".table.table-striped").show();
-				$("#insert").hide();
+				location.reload();
             });
             updateFunction();
         }
@@ -117,7 +113,7 @@ function updateFunction() {
 		var dataString = $(this).serialize();
 	    $.ajax({
 	        type: "POST",
-	        url: "insert_resume.php",
+	        url: "insert_post.php",
 	        data: dataString,
 	        success: function(data){
 				$("form#insert").unblock();

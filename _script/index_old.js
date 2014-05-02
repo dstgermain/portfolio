@@ -1,3 +1,7 @@
+// Author: Daniel St. Germain
+// Date: April 28, 2014
+// Description: Keep for future knowledge - isn't used in the site
+
 function createHeightObject(column){
 	"use strict";
 	var i = 0,

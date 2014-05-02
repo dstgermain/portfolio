@@ -6,7 +6,7 @@
 	$query_cat = "SELECT * FROM portfolio_cat";
 	$items = mysqli_query($conn, $query_Items) or die(mysqli_error());
 	$cats = mysqli_query($conn, $query_cat) or die(mysqli_error());
-	$list_cats = [];
+	$list_cats = array();
 	while ($cat = mysqli_fetch_array($cats)) {
 	    $list_cats[] = $cat;
 	}
@@ -15,7 +15,7 @@
 		die(' Failed to update - '.$name);
 	}
 	mysqli_close($conn);
-	$arr = [];
+	$arr = array();
 	while ($result = mysqli_fetch_array($items)) { 
 		$arr[] = array(
 			"id" => $result['item_ID'],

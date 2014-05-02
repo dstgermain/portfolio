@@ -1,3 +1,8 @@
+// Author: Daniel St. Germain
+// Date: April 28, 2014
+// Description: Mobile Navigation + other global functions
+// ** Please do not use without permission ** 
+
 $(document).ready(function(){
 	"use strict";
 	$("#mobile-nav-btn").on("click", function(){

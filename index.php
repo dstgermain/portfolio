@@ -60,8 +60,8 @@ include 'includes/_navigation.php';
 						<div class="box-thumb">
 							<img src="<?php if(!is_null($item["img"]) && getimagesize($item["img"]) !== false) { echo $item["img"]; } else { echo "img/placeholder.gif"; } ?>" class="responsive"/>
 						</div>
+						<h3><?php if(!is_null($item["name"])) echo $item["name"]; ?></h3>
 						<div class="box-description">
-							<h3><?php if(!is_null($item["name"])) echo $item["name"]; ?></h3>
 							<h4><?php if(!is_null($item["cat"])) echo $item["cat"]; ?></h4>
 							<p>
 								<?php if(!is_null($item["desc"])) echo $item["desc"]; ?>
@@ -82,8 +82,8 @@ include 'includes/_navigation.php';
 						<div class="box-thumb">
 							<img src="<?php if(!is_null($item["img"]) && getimagesize($item["img"]) !== false) { echo $item["img"]; } else { echo "img/placeholder.gif"; } ?>" class="responsive"/>
 						</div>
-						<div class="box-description">
-							<h3><?php if(!is_null($item["name"])) echo $item["name"]; ?></h3>
+						<h3><?php if(!is_null($item["name"])) echo $item["name"]; ?></h3>
+						<div class="box-description">	
 							<h4><?php if(!is_null($item["cat"])) echo $item["cat"]; ?></h4>
 							<p>
 								<?php if(!is_null($item["desc"])) echo $item["desc"]; ?>
@@ -104,8 +104,8 @@ include 'includes/_navigation.php';
 						<div class="box-thumb">
 							<img src="<?php if(!is_null($item["img"]) && getimagesize($item["img"]) !== false) { echo $item["img"]; } else { echo "img/placeholder.gif"; } ?>" class="responsive"/>
 						</div>
+						<h3><?php if(!is_null($item["name"])) echo $item["name"]; ?></h3>
 						<div class="box-description">
-							<h3><?php if(!is_null($item["name"])) echo $item["name"]; ?></h3>
 							<h4><?php if(!is_null($item["cat"])) echo $item["cat"]; ?></h4>
 							<p>
 								<?php if(!is_null($item["desc"])) echo $item["desc"]; ?>
