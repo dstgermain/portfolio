@@ -1,0 +1,176 @@
+@import 'variables.scss';
+@import url(https://fonts.googleapis.com/css?family=Raleway:500,700,300);
+
+body {
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  padding: 0;
+  margin: 0;
+  color: darken(#f0f0f0, 50%)
+}
+
+h4 {
+  font-size: 1.1em;
+}
+
+a {
+  color: #184761;
+  text-decoration: none;
+  transition: color .2s ease-in-out;
+  cursor: pointer;
+
+  &:visited,
+  &:focus,
+  &:active {
+    color: #184761;
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: darken(#184761, 25%);
+  }
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.column {
+  &-full {
+    @include column;
+    @include clearfix;
+  }
+
+  &-multi {
+    @include column;
+    float: left;
+
+    @include media_sm {
+      width: 50%;
+    }
+
+    @include media_m {
+      width: 50%;
+    }
+
+    @include media_l {
+      width: 25%;
+    }
+  }
+}
+
+// navigation
+header {
+  padding: 15px;
+  margin-bottom: 50px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
+  @include clearfix;
+
+  @include media_sm {
+    text-align: left;
+  }
+
+  .logo {
+    cursor: pointer;
+
+    @include media_sm {
+      float: left;
+    }
+  }
+
+  nav {
+    @include media_sm {
+      float: right;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        display: inline-block;
+        padding: 0;
+        margin: 15px 2px 0;
+
+        @include media_sm {
+          margin: 0 0 0 5px;
+        }
+
+        &.social {
+          margin-left: 2px;
+
+          @include media_sm {
+            margin-left: 15px;
+          }
+        }
+
+        .icon {
+          font-size: 27px;
+          display: block;
+          line-height: 0em;
+          top: 6px;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+// footer
+footer {
+  padding: 15px;
+
+  .copyright {
+    display: block;
+    text-align: center;
+  }
+}
+
+// index page
+.group-container {
+  padding-bottom: 100px;
+  border-bottom: 1px solid #f0f0f0;
+
+  h4 {
+    margin: -10px 0 50px 0;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+  }
+}
+
+.item-container {
+  display: table;
+  position: relative;
+  height: 150px;
+  background: #f0f0f0;
+  border-right: 1px solid #fff;
+  cursor: pointer;
+
+  .item-inner {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: darken(#f0f0f0, 25%);
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,.3);
+    transition: bottom .2s ease-in-out;
+    filter: blur(20px);
+  }
+
+  &:hover:after {
+    bottom: 0;
+  }
+}

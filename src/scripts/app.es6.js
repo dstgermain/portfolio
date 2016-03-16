@@ -1,4 +1,5 @@
 import { Application } from 'backbone.marionette';
+import sass from '../scss/main.scss';
 
 import Router from './router';
 

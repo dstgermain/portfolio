@@ -13,10 +13,6 @@ class Post extends Backbone.Model {
       created: new Date()
     };
   }
-
-  idAttribute() {
-    return this.defaults().id;
-  }
 }
 
 export default Post;

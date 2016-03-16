@@ -1,0 +1,39 @@
+$large-screen: 992px;
+$medium-screen: 768px;
+$small-screen: 480px;
+
+@mixin column {
+  width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+@mixin clearfix {
+  clear: both;
+
+  &:after {
+    content: " ";
+    display: table;
+    visibility: hidden;
+    width: 100%;
+    clear: both;
+  }
+}
+
+@mixin media_sm {
+  @media (min-width: #{$small-screen}) {
+    @content;
+  }
+}
+
+@mixin media_m {
+  @media (min-width: #{$medium-screen}) {
+    @content;
+  }
+}
+
+@mixin media_l {
+  @media (min-width: #{$large-screen}) {
+    @content;
+  }
+}

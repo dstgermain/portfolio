@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const dirDist = path.resolve(__dirname, 'dist');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const dynamicEntry = path.resolve('./src/app.es6');
+const dynamicEntry = path.resolve('./src/scripts/app.es6');
 
 const dynamicCssLoader = process.env.NODE_ENV !== 'production' ?
   'style-loader!' +
@@ -32,7 +32,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.es6$/,
+        test: /\.es6\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
@@ -55,7 +55,17 @@ module.exports = {
     colors: true
   },
   resolve: {
-    extensions: ['', '.js', '.es6', '.mustache']
+    root: path.resolve(__dirname),
+    extensions: ['', '.js', '.es6.js', '.mustache'],
+    alias: {
+      collections: 'src/scripts/collections',
+      controllers: 'src/scripts/controllers',
+      models: 'src/scripts/models',
+      services: 'src/scripts/services',
+      templates: 'src/scripts/templates',
+      views: 'src/scripts/views',
+      helpers: 'src/scripts/helpers'
+    }
   },
   // Create source maps for the bundle
   devtool: 'source-map'
