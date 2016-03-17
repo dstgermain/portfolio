@@ -6,6 +6,7 @@ import PostEntry from 'views/post';
 import NotFoundView from 'views/not_found';
 import Header from 'views/header';
 import Footer from 'views/footer';
+import AboutPage from 'views/aboutPage';
 
 import Post from 'models/post';
 
@@ -16,15 +17,13 @@ import PostsService from 'services/PostsService';
 class Layout extends LayoutView {
   constructor(...rest) {
     super(...rest);
-  }
-
-  template() {
-    return indexTemplate;
+    this.template = indexTemplate;
   }
 
   regions() {
     return {
       layout: '.layout-hook',
+      entry: '.entry',
       footer: 'footer',
       header: 'header'
     };
@@ -32,7 +31,9 @@ class Layout extends LayoutView {
 
   childEvents() {
     return {
-      'child:show:index': 'onChildShowIndex'
+      'child:show:index': 'onChildShowIndex',
+      'child:show:page': 'onChildShowPage',
+      'child:show:about': 'onChildShowAbout'
     };
   }
 
@@ -42,6 +43,7 @@ class Layout extends LayoutView {
   }
 
   onShowIndexPage() {
+    if (this.postView) this.postView.destroy();
     const postList = new PostList({ collection: this.collection });
     this.showChildView('layout', postList);
 
@@ -54,6 +56,9 @@ class Layout extends LayoutView {
   }
 
   onShowIndexEntry(entry) {
+    const postList = new PostList({ collection: this.collection });
+    this.showChildView('layout', postList);
+
     PostsService.getPosts().then((data) => {
       const model = this.findPostModel(data, entry);
       this.showPost(model);
@@ -61,19 +66,33 @@ class Layout extends LayoutView {
   }
 
   onChildShowIndex() {
-    console.log('YEAY');
+    if (this.postView) this.postView.destroy();
     this.triggerMethod('show:index:page');
+  }
+
+  onChildShowPage(composite, post) {
+    this.showPost(post);
   }
 
   /** Share some simple logic from our subviews */
   showPost(model) {
     if (model && model.attributes.id) {
-      const entry = new PostEntry({ model });
-      this.showChildView('layout', entry);
+      this.postView = new PostEntry({ model });
+      this.showChildView('entry', this.postView);
       Backbone.history.navigate(`portfolio/${model.attributes.id}`);
     } else {
       this.showErr();
     }
+  }
+
+  onShowAboutPage() {
+    if (this.postView) this.postView.destroy();
+    this.aboutPage = new AboutPage();
+    this.showChildView('layout', this.aboutPage);
+  }
+
+  onChildShowAbout() {
+    this.triggerMethod('show:about:page');
   }
 
   showErr() {

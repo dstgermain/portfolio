@@ -1,4 +1,3 @@
-import _ from 'underscore';
 import { LayoutView } from 'backbone.marionette';
 
 import NotFoundTemplate from 'templates/not_found';
@@ -6,9 +5,8 @@ import NotFoundTemplate from 'templates/not_found';
 class NotFoundView extends LayoutView {
   constructor(...rest) {
     super(...rest);
+    this.template = NotFoundTemplate;
   }
-
-  template() { return NotFoundTemplate; }
 
   ui() {
     return {

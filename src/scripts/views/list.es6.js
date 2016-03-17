@@ -10,13 +10,12 @@ class PostGroup extends ItemView {
 
   events() {
     return {
-      'click .item-container': 'onClickItem'
+      'click .item-container': 'showChildPage'
     };
   }
 
-  onClickItem(e) {
-    const id = $(e.currentTarget).data('id');
-    Backbone.history.navigate(`portfolio/${id}`, true);
+  showChildPage(e) {
+    this.triggerMethod('child:show:page', e);
   }
 
   onRender() {
@@ -32,6 +31,14 @@ class PostList extends CompositeView {
     this.template = _.template('<div class="groups"></div>');
     this.childView = PostGroup;
     this.childViewContainer = '.groups';
+  }
+
+  onChildviewChildShowPage(composite, event) {
+    const postModel = _.find(
+      composite.model.group.models,
+      (model) => model.attributes.id === $(event.target).data('id')
+    );
+    this.triggerMethod('child:show:page', postModel);
   }
 }
 

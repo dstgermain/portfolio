@@ -1,14 +1,14 @@
 import { View } from 'backbone.marionette';
+import aboutTemplate from 'templates/about';
 
-class Footer extends View {
+class AboutPage extends View {
   constructor(...rest) {
     super(...rest);
+    this.template = aboutTemplate;
   }
 
   render() {
-    const date = new Date().getFullYear();
-    this.$el.html(`<span class="copyright">&copy; ${date}</span>`);
-    return this;
+    this.$el.html(this.template());
   }
 
   onRender() {
@@ -18,4 +18,4 @@ class Footer extends View {
   }
 }
 
-export default Footer;
+export default AboutPage;

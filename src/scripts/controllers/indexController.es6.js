@@ -41,6 +41,11 @@ class IndexController extends Controller {
     const layout = this.getOption('layout');
     layout.triggerMethod('show:index:entry', entry);
   }
+
+  aboutPage() {
+    const layout = this.getOption('layout');
+    layout.triggerMethod('show:about:page');
+  }
 }
 
 export default IndexController;

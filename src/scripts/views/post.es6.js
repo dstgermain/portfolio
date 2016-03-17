@@ -5,6 +5,17 @@ import PostView from 'templates/post';
 class postEntry extends LayoutView {
   constructor(...rest) {
     super(...rest);
+    this.template = PostView;
+  }
+
+  onRender() {
+    this.$el.addClass('open');
+  }
+
+  destroy() {
+    this.$el.fadeOut(300, () => {
+      this.remove();
+    });
   }
 
   events() {
@@ -15,10 +26,8 @@ class postEntry extends LayoutView {
 
   onShowIndexPage(e) {
     e.preventDefault();
-    this.triggerMethod('child:show:index');
+    this.triggerMethod('child:show:index', this);
   }
-
-  template() { return PostView; }
 }
 
 export default postEntry;

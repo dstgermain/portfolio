@@ -4,15 +4,13 @@ import navigationTemplate from 'templates/navigation';
 class Header extends View {
   constructor(...rest) {
     super(...rest);
-  }
-
-  template() {
-    return navigationTemplate;
+    this.template = navigationTemplate;
   }
 
   events() {
     return {
-      'click .logo': 'onShowIndexPage'
+      'click .home': 'onShowIndexPage',
+      'click .about': 'onShowAboutPage'
     };
   }
 
@@ -20,8 +18,11 @@ class Header extends View {
     this.triggerMethod('child:show:index');
   }
 
+  onShowAboutPage() {
+    this.triggerMethod('child:show:about');
+  }
+
   render() {
-    const date = new Date().getFullYear();
     this.$el.html(this.template());
     return this;
   }

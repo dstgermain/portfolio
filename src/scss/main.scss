@@ -5,9 +5,15 @@ body {
   font-size: 14px;
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
+  line-height: 1.5em;
   padding: 0;
   margin: 0;
-  color: darken(#f0f0f0, 50%)
+  color: darken(#f0f0f0, 50%);
+  margin-top: 126px;
+
+  @include media_sm {
+    margin-top: 96px;
+  }
 }
 
 h4 {
@@ -63,11 +69,23 @@ a {
 
 // navigation
 header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 2;
   padding: 15px;
-  margin-bottom: 50px;
   text-align: center;
   box-shadow: 0 2px 10px rgba(0,0,0,.1);
   @include clearfix;
+
+  &:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    z-index: -1;
+    background: rgba(255,255,255, .8);
+  }
 
   @include media_sm {
     text-align: left;
@@ -95,6 +113,7 @@ header {
         display: inline-block;
         padding: 0;
         margin: 15px 2px 0;
+        cursor: pointer;
 
         @include media_sm {
           margin: 0 0 0 5px;
@@ -167,10 +186,106 @@ footer {
     right: 0;
     background: rgba(255,255,255,.3);
     transition: bottom .2s ease-in-out;
-    filter: blur(20px);
   }
 
   &:hover:after {
     bottom: 0;
   }
 }
+
+//entry
+.entry {
+  .open:before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 75px;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    background-color: rgba(0,0,0,.2);
+    animation: fadeIn .5s forwards;
+
+    @include media_sm {
+      top: 45px;
+    }
+  }
+
+  .entry-inner {
+    position: fixed;
+    top: 100%;
+    height: 100%;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    padding: 15px;
+    background-color: rgba(255,255,255,.9);
+    animation: slideIn .5s forwards;
+  }
+
+  a.back {
+    display: block;
+    position: absolute;
+    right: 20px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+      0% {
+        top: 100%;
+      }
+      70% {
+        top: 55px;
+      }
+      85% {
+        top: 80px;
+      }
+      95% {
+        top: 60px;
+      }
+      100% {
+        top: 75px;
+      }
+  }
+
+@include media_sm {
+  @keyframes slideIn {
+      0% {
+        top: 100%;
+      }
+      70% {
+        top: 30px;
+      }
+      85% {
+        top: 60px;
+      }
+      95% {
+        top: 40px;
+      }
+      100% {
+        top: 45px;
+      }
+  }
+}
+
+// page
+.page {
+  padding: 0 15px;
+  border-bottom: 1px solid #f0f0f0;
+
+  p:last-child {
+    margin-bottom: 50px;
+  }
+}
+
