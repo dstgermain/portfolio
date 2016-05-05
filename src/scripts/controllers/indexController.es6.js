@@ -1,6 +1,7 @@
 import { Controller, RegionManager } from 'backbone.marionette';
 
 import PostsGroup from 'collections/postsGroup';
+import ExpCollection from 'collections/expCollection';
 import LayoutView from 'views/layout';
 
 import PostsService from 'services/PostsService';
@@ -16,9 +17,11 @@ class IndexController extends Controller {
     });
 
     this.postsGroup = new PostsGroup();
+    this.expCollection = new ExpCollection();
 
     const layout = new LayoutView({
-      collection: this.postsGroup
+      collection_one: this.postsGroup,
+      collection_two: this.expCollection
     });
 
     this.getOption('regionManager').get('main').show(layout);
@@ -29,6 +32,10 @@ class IndexController extends Controller {
     PostsService.getPosts().then((data) => {
       const filtered = PostsService.filterPosts(data);
       this.postsGroup.reset(filtered);
+    });
+
+    PostsService.getExp().then((data) => {
+      this.expCollection.reset(data);
     });
   }
 
@@ -45,6 +52,11 @@ class IndexController extends Controller {
   aboutPage() {
     const layout = this.getOption('layout');
     layout.triggerMethod('show:about:page');
+  }
+
+  resumePage() {
+    const layout = this.getOption('layout');
+    layout.triggerMethod('show:resume:page');
   }
 }
 

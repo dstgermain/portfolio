@@ -1,2 +1,4 @@
 dbconnection.php
 node_modules
+vendor
+dist

@@ -23,6 +23,10 @@ class PostsService {
 
     return result;
   }
+
+  static getExp() {
+    return $.getJSON('http://www.dev.wordpressproject.com/api/linkedin.php');
+  }
 }
 
 export default PostsService;

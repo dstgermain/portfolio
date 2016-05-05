@@ -6,7 +6,8 @@ const Router = AppRouter.extend({
   appRoutes: {
     '': 'index',
     'portfolio/:id': 'portfolioEntry',
-    about: 'aboutPage'
+    about: 'aboutPage',
+    resume: 'resumePage'
   },
   initialize() {
     this.controller = new IndexController();

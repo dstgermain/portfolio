@@ -7,6 +7,7 @@ import NotFoundView from 'views/not_found';
 import Header from 'views/header';
 import Footer from 'views/footer';
 import AboutPage from 'views/aboutPage';
+import ResumePage from 'views/resumePage';
 
 import Post from 'models/post';
 
@@ -17,6 +18,7 @@ import PostsService from 'services/PostsService';
 class Layout extends LayoutView {
   constructor(...rest) {
     super(...rest);
+    _.extend(this, rest[0]);
     this.template = indexTemplate;
   }
 
@@ -33,7 +35,8 @@ class Layout extends LayoutView {
     return {
       'child:show:index': 'onChildShowIndex',
       'child:show:page': 'onChildShowPage',
-      'child:show:about': 'onChildShowAbout'
+      'child:show:about': 'onChildShowAbout',
+      'child:show:resume': 'onChildShowResume'
     };
   }
 
@@ -44,7 +47,7 @@ class Layout extends LayoutView {
 
   onShowIndexPage() {
     if (this.postView) this.postView.destroy();
-    const postList = new PostList({ collection: this.collection });
+    const postList = new PostList({ collection: this.collection_one });
     this.showChildView('layout', postList);
 
     Backbone.history.navigate('');
@@ -56,7 +59,7 @@ class Layout extends LayoutView {
   }
 
   onShowIndexEntry(entry) {
-    const postList = new PostList({ collection: this.collection });
+    const postList = new PostList({ collection: this.collection_one });
     this.showChildView('layout', postList);
 
     PostsService.getPosts().then((data) => {
@@ -88,11 +91,23 @@ class Layout extends LayoutView {
   onShowAboutPage() {
     if (this.postView) this.postView.destroy();
     this.aboutPage = new AboutPage();
+    Backbone.history.navigate('about');
     this.showChildView('layout', this.aboutPage);
   }
 
   onChildShowAbout() {
     this.triggerMethod('show:about:page');
+  }
+
+  onShowResumePage() {
+    if (this.postView) this.postView.destroy();
+    this.resumePage = new ResumePage({ collection: this.collection_two });
+    Backbone.history.navigate('resume');
+    this.showChildView('layout', this.resumePage);
+  }
+
+  onChildShowResume() {
+    this.triggerMethod('show:resume:page');
   }
 
   showErr() {

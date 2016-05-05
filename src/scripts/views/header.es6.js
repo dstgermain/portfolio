@@ -10,7 +10,8 @@ class Header extends View {
   events() {
     return {
       'click .home': 'onShowIndexPage',
-      'click .about': 'onShowAboutPage'
+      'click .about': 'onShowAboutPage',
+      'click .resume': 'onShowResumePage'
     };
   }
 
@@ -20,6 +21,10 @@ class Header extends View {
 
   onShowAboutPage() {
     this.triggerMethod('child:show:about');
+  }
+
+  onShowResumePage() {
+    this.triggerMethod('child:show:resume');
   }
 
   render() {

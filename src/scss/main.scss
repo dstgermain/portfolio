@@ -9,11 +9,14 @@ body {
   padding: 0;
   margin: 0;
   color: darken(#f0f0f0, 50%);
-  margin-top: 126px;
+}
 
-  @include media_sm {
-    margin-top: 96px;
-  }
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+html, body, #app-hook, #app-hook > div {
+  height: 100%;
 }
 
 h4 {
@@ -37,6 +40,10 @@ a {
     text-decoration: none;
     color: darken(#184761, 25%);
   }
+}
+
+p {
+  margin-bottom: 1.2em;
 }
 
 .clearfix {
@@ -68,7 +75,7 @@ a {
 }
 
 // navigation
-header {
+.navigation {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 2;
@@ -125,6 +132,10 @@ header {
           @include media_sm {
             margin-left: 15px;
           }
+
+          & + li {
+            margin-right: 3px;
+          }
         }
 
         .icon {
@@ -141,11 +152,37 @@ header {
 
 // footer
 footer {
-  padding: 15px;
+  border-top: 1px solid #f0f0f0;
 
   .copyright {
     display: block;
     text-align: center;
+    padding: 15px;
+  }
+}
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -50px;
+
+  @include media_sm {
+    margin-bottom: -50px;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+  }
+}
+.site-footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+  height: 50px; 
+}
+
+.layout-hook {
+  padding-top: 126px;
+
+  @include media_sm {
+    padding-top: 96px;
   }
 }
 
@@ -281,11 +318,37 @@ footer {
 
 // page
 .page {
+  max-width: 700px;
+  margin: 0 auto 30px;
   padding: 0 15px;
-  border-bottom: 1px solid #f0f0f0;
 
   p:last-child {
     margin-bottom: 50px;
+  }
+}
+
+// resume
+.page + img {
+  display: block;
+  margin: 15px auto;
+  max-width: 50px;
+}
+
+.resume-entry {
+  margin-bottom: 45px;
+
+  h2 {
+    margin-bottom: .2em;
+  }
+
+  h4 {
+    margin: 0 0 .2em;
+  }
+
+  span {
+    display: block;
+    font-style: italic;
+    margin-bottom: .4em;
   }
 }
 

@@ -1,12 +1,11 @@
 {
-  "name": "80",
-  "version": "0.0.0",
-  "description": "portfolio project",
-  "main": "Gruntfile.js",
+  "name": "Portfolio",
+  "version": "0.1.0",
+  "description": "Portfolio ES6 w/ backbonejs, webpack, and sass",
   "dependencies": {
     "grunt": "~0.4.4",
     "grunt-cli": "~0.1.13",
-    "node": "~0.0.0"
+    "node": "~4.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
@@ -38,20 +37,20 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "build": "NODE_ENV=production webpack  -p --optimize-minimize",
-    "start": "webpack"
+    "build": "export NODE_ENV=production; webpack --config webpack.config.js -p --progress",
+    "dev": "webpack --config webpack.config.js --watch --progress --devtool source-map"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/n/a"
+    "url": "git://github.com/dstgermain/portfolio"
   },
   "keywords": [
-    "n/a"
+    "backbone", "es6", "marionette", "webpack"
   ],
   "author": "Daniel St. Germain",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/n/a/issues"
+    "url": "https://github.com/dstgermain/portfolio/issues"
   },
-  "homepage": "https://github.com/n/a"
+  "homepage": "https://github.com/dstgermain/portfolio"
 }

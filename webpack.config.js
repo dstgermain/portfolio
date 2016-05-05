@@ -1,19 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-const precss = require('precss');
-
 const dynamicEntry = path.resolve('./src/scripts/app.es6');
 
-const styleList = 'style!css!sass?outputStyle=expanded!' +
-  'autoprefixer?{browsers:["last 2 version", "ie 10"]}';
-const dynamicCssLoader = process.env.NODE_ENV !== 'production' ?
-  styleList : ExtractTextPlugin.extract(styleList);
-
-const dynamicPluginLoader = process.env.NODE_ENV !== 'production' ?
-[new webpack.NoErrorsPlugin()] :
-[new webpack.NoErrorsPlugin(), new ExtractTextPlugin('main.css')];
 
 module.exports = {
   entry: {
@@ -30,12 +18,6 @@ module.exports = {
     failOnError: false,
     failOnWarning: false,
     emitError: true
-  },
-  postcss: function postcss() {
-    return [
-      autoprefixer({ browsers: ["last 2 versions"] }),
-      precss
-    ];
   },
 
   module: {
@@ -54,7 +36,8 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: dynamicCssLoader
+        loader: 'style!css!sass?outputStyle=expanded!' +
+          'autoprefixer?{browsers:["last 2 version", "ie 10"]}'
       }
     ],
     preLoaders: [
@@ -65,7 +48,7 @@ module.exports = {
       }
     ]
   },
-  plugins: dynamicPluginLoader,
+  plugins: [new webpack.NoErrorsPlugin()],
   stats: {
     // Nice colored output
     colors: true
