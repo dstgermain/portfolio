@@ -1,56 +1,68 @@
 [
   {
-    "id": 1,
-    "name": "Test Project 1",
-    "category": "Web",
-    "date": "1/1/2016",
-    "description": "Donec ut mauris magna. Nulla facilisi. Morbi ac aliquam velit. Praesent viverra metus ac sem varius, at pulvinar augue mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer vel tristique felis. Suspendisse potenti. Quisque et semper nisl, at suscipit mi.",
-    "images": [],
-    "url": "http://www.foobar.com"
-  },
-  {
     "id": 2,
-    "name": "Test Project 2",
-    "category": "Design",
-    "date": "12/1/2016",
-    "description": "Vestibulum efficitur massa libero, vehicula aliquam ante mollis id. Donec placerat congue purus, eget aliquet dolor blandit eu.",
-    "images": [],
-    "url": ""
+    "name": "Ten",
+    "category": "Web Development",
+    "date": "10/1/2014",
+    "images": {
+      "thumb": "/portfolio/web/ten-thumb.jpg",
+      "full": ["/portfolio/web/ten.jpg"]
+    },
+    "url": "/portfolio/web/ten"
   },
   {
     "id": 3,
-    "name": "Test Project 3",
-    "category": "Web",
-    "date": "1/1/2016",
-    "description": "Donec rutrum est sed ante efficitur sagittis. Etiam et turpis nec leo pharetra bibendum. Nunc posuere cursus ultricies. Cras eu pulvinar diam. Morbi lacus leo, aliquam eget magna id, faucibus malesuada nisi. Curabitur eget lectus sed turpis dapibus tempus ac at eros. Vestibulum maximus molestie eros, nec imperdiet orci pellentesque vel. Nunc vehicula lectus in eros cursus, id lobortis dui dignissim. Duis sollicitudin, tortor in lacinia lacinia, quam tortor laoreet justo, in mollis turpis urna consectetur augue. Curabitur luctus id quam sed ultricies. Pellentesque et risus efficitur, aliquet arcu et, commodo ligula.",
-    "images": [],
-    "url": ""
+    "name": "Wedding Site",
+    "category": "Web Development",
+    "date": "12/10/2015",
+    "images": {
+      "thumb": "/portfolio/web/wedding-thumb.jpg",
+      "full": ["/portfolio/web/wedding.jpg"]
+    },
+    "url": "/portfolio/web/wedding"
   },
   {
     "id": 4,
-    "name": "Test Project 4",
-    "category": "Web",
-    "date": "5/1/2016",
-    "description": "Nulla id imperdiet quam.",
-    "images": [],
-    "url": ""
+    "name": "Dental Office",
+    "category": "Web Development",
+    "date": "11/10/2014",
+    "images": {
+      "thumb": "/portfolio/web/dental-thumb.png",
+      "full": ["/portfolio/web/dental.png"]
+    },
+    "url": "http://www.exeterdental.com"
   },
   {
     "id": 5,
-    "name": "Test Project 5",
-    "category": "Motion",
-    "date": "4/1/2016",
-    "description": "",
-    "images": [],
-    "url": ""
+    "name": "Geekhouse Bikes",
+    "category": "Web Development",
+    "date": "5/10/2015",
+    "images": {
+      "thumb": "/portfolio/web/geek-thumb.png",
+      "full": ["/portfolio/web/geek.png"]
+    },
+    "url": "http://www.geekhousebikes.com"
   },
   {
     "id": 6,
-    "name": "Test Project 6",
-    "date": "3/1/2016",
-    "category": "Web",
-    "description": "Nam aliquam euismod dolor, at facilisis nibh imperdiet eget. Etiam ultrices volutpat justo imperdiet placerat. Vestibulum commodo ante vel ipsum dignissim consequat.",
-    "images": [],
+    "name": "BBQ Barn",
+    "category": "Web Development",
+    "date": "2/10/2015",
+    "images": {
+      "thumb": "/portfolio/web/bbq-thumb.jpg",
+      "full": ["/portfolio/web/bbq.png"]
+    },
+    "url": "http://www.bbqbarn.com"
+  },
+  {
+    "id": 7,
+    "name": "Golden Rule Calculator",
+    "category": "Web Development",
+    "date": "1/10/2012",
+    "images": {
+      "thumb": "/portfolio/web/golden-thumb.png",
+      "full": ["/portfolio/web/golden.png"]
+    },
     "url": ""
   }
 ]

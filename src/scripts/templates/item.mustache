@@ -2,11 +2,12 @@
   <h4>{{name}}</h4>
   <div class="clearfix">
     {{#group}}
-      <div class="item-container column-multi" data-id="{{id}}">
+      <a class="item-container column-multi" data-id="{{id}}" href="{{url}}" target="_blank">
+        <div class="image" style="background-image: url({{images.full}})"></div>
         <div class="item-inner">
           {{name}}
         </div>
-      </div>
+      </a>
     {{/group}}
   </div>
 </div>
